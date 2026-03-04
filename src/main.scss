@@ -51,6 +51,10 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+  &__save-hidden {
+    display: none;
+  }
 }
 
 .saved-jokes {
@@ -63,6 +67,11 @@ body {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 1rem;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column-reverse;
   }
 }
 

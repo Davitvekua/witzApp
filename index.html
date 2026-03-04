@@ -20,7 +20,10 @@
         <button class="current-joke__load" id="loadButton">
           Neuen Witz laden
         </button>
-        <button class="current-joke__save" id="saveButton">
+        <button
+          class="current-joke__save current-joke__save-hidden"
+          id="saveButton"
+        >
           Witz speicher
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -39,11 +42,11 @@
         </button>
       </div>
     </div>
-    <div class="saved-jokes">
+    <div class="saved-jokes" id="savedJokes">
       <div class="saved-jokes__heading">Gespeicherte Witze</div>
-      <div class="saved-jokes__list">
-        <div class="saved-joke">
-          <div class="saved-joke__text">Lorem ipsum</div>
+      <div class="saved-jokes__list" id="savedJokeList">
+        <!-- <div class="saved-joke">
+          <div class="saved-joke__text" id="savedJokeText">Lorem ipsum</div>
           <button class="saved-joke__delete">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -60,140 +63,7 @@
               />
             </svg>
           </button>
-        </div>
-        <div class="saved-joke">
-          <div class="saved-joke__text">Lorem ipsum</div>
-          <button class="saved-joke__delete">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="saved-joke">
-          <div class="saved-joke__text">Lorem ipsum</div>
-          <button class="saved-joke__delete">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="saved-joke">
-          <div class="saved-joke__text">Lorem ipsum</div>
-          <button class="saved-joke__delete">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="saved-joke">
-          <div class="saved-joke__text">Lorem ipsum</div>
-          <button class="saved-joke__delete">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="saved-joke">
-          <div class="saved-joke__text">Lorem ipsum</div>
-          <button class="saved-joke__delete">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="saved-joke">
-          <div class="saved-joke__text">Lorem ipsum</div>
-          <button class="saved-joke__delete">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5"
-              />
-            </svg>
-          </button>
-        </div>
-        <div class="saved-joke">
-          <div class="saved-joke__text">Lorem ipsum</div>
-          <button class="saved-joke__delete">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m3 3 1.664 1.664M21 21l-1.5-1.5m-5.485-1.242L12 17.25 4.5 21V8.742m.164-4.078a2.15 2.15 0 0 1 1.743-1.342 48.507 48.507 0 0 1 11.186 0c1.1.128 1.907 1.077 1.907 2.185V19.5M4.664 4.664 19.5 19.5"
-              />
-            </svg>
-          </button>
-        </div>
+        </div> -->
       </div>
     </div>
   </body>
