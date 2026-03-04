@@ -13,10 +13,14 @@
   <body>
     <div class="app-heading">Witze App</div>
     <div class="current-joke">
-      <div class="current-joke__text">Lorem ipsum</div>
+      <div class="current-joke__text" id="jokeText">
+        Klicke auf den Button um einen Witz zu laden!
+      </div>
       <div class="current-joke__buttons">
-        <button class="current-joke__load">Neuen Witz laden</button>
-        <button class="current-joke__save">
+        <button class="current-joke__load" id="loadButton">
+          Neuen Witz laden
+        </button>
+        <button class="current-joke__save" id="saveButton">
           Witz speicher
           <svg
             xmlns="http://www.w3.org/2000/svg"
