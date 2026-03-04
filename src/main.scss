@@ -1,0 +1,115 @@
+@use "variable" as *;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $backround-color;
+  color: $font-color;
+  font-family: "Inter", sans-serif;
+  overflow-y: auto;
+}
+
+.app-heading {
+  margin: 2.3rem;
+  font-size: 3.8rem;
+  color: $app-heading-color;
+  font-family: "Rubik Scribble", sans-serif;
+  font-weight: 700;
+}
+
+.current-joke {
+  margin: 1rem;
+  background-color: lighten($color: $backround-color, $amount: 10);
+  padding: 1.5rem;
+  width: 90%;
+
+  &__text {
+    font-size: 1.2rem;
+  }
+
+  &__load {
+    background-color: $app-heading-color;
+    margin: 2.2rem 0 0.7rem 0;
+    @include button-style();
+  }
+
+  &__save {
+    @include button-style();
+    background-color: transparent;
+    border: 1px solid $app-heading-color;
+    color: $app-heading-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.saved-jokes {
+  margin: 1rem;
+  padding: 1.5rem 0 1.5rem 0;
+  width: 90%;
+
+  &__heading {
+    font-family: "Rubik Scribble", sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+}
+
+.saved-joke {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  background-color: lighten($color: $backround-color, $amount: 10);
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+
+  &__delete {
+    font-family: "Inter", sans-serif;
+    background-color: red;
+    min-width: 3rem;
+    height: 3rem;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: $font-color;
+    box-shadow: none;
+  }
+}
+
+.size-6 {
+  width: 1.8rem;
+}
+
+@media only screen and (min-width: 600px) {
+  .current-joke__buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+  .current-joke__load,
+  .current-joke__save {
+    margin: 3rem 0 0.8rem 0;
+    width: fit-content;
+    padding-inline: 2rem;
+  }
+
+  .current-joke {
+    max-width: 870px;
+  }
+  .saved-jokes {
+    max-width: 770px;
+  }
+}
