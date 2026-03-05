@@ -1,6 +1,8 @@
 import "./main.scss";
+import "./bonus.scss";
 import { getRandomJoke } from "./fetch.js";
 import { savedJoke } from "./savedJokeRender.js";
+import { moduschanger } from "./bonus.js";
 
 let jokeId = 0;
 let jokeArray = [];
@@ -56,6 +58,10 @@ function reloadRender() {
     jokeId = jokeArray[jokeArray.length - 1].id;
   }
   emptyText();
+
+  document.body.style.background = JSON.parse(
+    localStorage.getItem("modusColor"),
+  );
 }
 
 function deleteJoke(event) {
@@ -78,3 +84,9 @@ document
   .addEventListener("click", rendomJokeRender);
 document.getElementById("saveButton").addEventListener("click", jokeSave);
 document.addEventListener("DOMContentLoaded", reloadRender);
+
+document.querySelectorAll(".modusConsole__button").forEach((modusButton) => {
+  modusButton.addEventListener("click", moduschanger);
+});
+
+console.log(document.querySelectorAll(".modusConsole__button"));

@@ -1,0 +1,25 @@
+@use "variable" as *;
+
+.modusConsole {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  gap: 0.5rem;
+  background-color: transparent;
+  width: 100%;
+  padding: 1rem;
+
+  &__button {
+    width: 60px;
+    font-family: "Inter", sans-serif;
+    border-radius: 5px;
+    border: 3px solid $app-heading-color;
+    padding: 0.1rem;
+  }
+
+  &__dark {
+    background-color: $backround-color;
+    color: whitesmoke;
+    color: rgb(204, 204, 204);
+  }
+}
