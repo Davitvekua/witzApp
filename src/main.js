@@ -7,7 +7,6 @@ let jokeArray = [];
 
 async function rendomJokeRender() {
   const rendomJoke = await getRandomJoke();
-  console.log(rendomJoke.text);
   document.getElementById("jokeText").innerHTML = rendomJoke.text;
   document
     .getElementById("saveButton")
@@ -17,11 +16,8 @@ async function rendomJokeRender() {
 function jokeSave() {
   let currentJokeText = document.getElementById("jokeText").innerHTML;
   let jokeChecker = jokeArray.some((el) => {
-    console.log(el.text);
     return el.text === currentJokeText;
   });
-  console.log(currentJokeText);
-  console.log(jokeChecker);
   if (jokeChecker) {
     alert("Der Witz wurde bereits gespeichert");
   } else {
@@ -31,7 +27,6 @@ function jokeSave() {
       id: jokeId,
     };
     jokeArray.push(currentJoke);
-    console.log(jokeArray);
     saveInLS();
     savedJokeRender();
   }
@@ -44,21 +39,38 @@ function saveInLS() {
 function savedJokeRender() {
   document.getElementById("savedJokeList").innerHTML = "";
   jokeArray.forEach((el) => savedJoke(el));
+
+  document.querySelectorAll(".saved-joke__delete").forEach((deleteButton) => {
+    deleteButton.addEventListener("click", deleteJoke);
+  });
 }
 
 function reloadRender() {
-  jokeArray = JSON.parse(localStorage.getItem("Witz"));
-  if (jokeArray === null) {
-    jokeArray = [];
-  }
-  jokeArray.forEach((el) => savedJoke(el));
+  jokeArray = JSON.parse(localStorage.getItem("Witz")) || [];
+
+  savedJokeRender();
+
   if (jokeArray.length === 0) {
     jokeId = 0;
   } else {
     jokeId = jokeArray[jokeArray.length - 1].id;
   }
+  emptyText();
+}
 
-  console.log(jokeArray);
+function deleteJoke(event) {
+  let currentId = event.currentTarget.id;
+  jokeArray = jokeArray.filter((el) => el.id !== Number(currentId));
+  savedJokeRender();
+  saveInLS();
+  emptyText();
+}
+
+function emptyText() {
+  if (jokeArray.length === 0) {
+    document.getElementById("savedJokeList").innerHTML =
+      "Noch keine Witze gespeichert";
+  }
 }
 
 document

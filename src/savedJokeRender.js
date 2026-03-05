@@ -3,7 +3,7 @@ export function savedJoke(el) {
   saveJokeListEl.innerHTML += `<div class="saved-joke">
       <div class="saved-joke__text" > ${el.text}
       </div>
-      <button class="saved-joke__delete"> <svg
+      <button class="saved-joke__delete" id = ${el.id}> <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
