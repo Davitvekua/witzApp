@@ -59,9 +59,11 @@ function reloadRender() {
   }
   emptyText();
 
-  document.body.style.background = JSON.parse(
-    localStorage.getItem("modusColor"),
-  );
+  if (JSON.parse(localStorage.getItem("modusColor")) == "dark") {
+    document.body.classList.remove("body-red");
+  } else {
+    document.body.classList.add("body-red");
+  }
 }
 
 function deleteJoke(event) {
@@ -88,5 +90,3 @@ document.addEventListener("DOMContentLoaded", reloadRender);
 document.querySelectorAll(".modusConsole__button").forEach((modusButton) => {
   modusButton.addEventListener("click", moduschanger);
 });
-
-console.log(document.querySelectorAll(".modusConsole__button"));

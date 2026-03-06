@@ -18,6 +18,10 @@ body {
   overflow-y: auto;
 }
 
+.body-red {
+  background-color: red;
+}
+
 .app-heading {
   margin: 2.3rem;
   font-size: 3.8rem;
@@ -31,6 +35,7 @@ body {
   background-color: lighten($color: $backround-color, $amount: 10);
   padding: 1.5rem;
   width: 90%;
+  border-radius: 5px;
 
   &__text {
     font-size: 1.2rem;
@@ -87,6 +92,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  border-radius: 5px;
 
   &__delete {
     font-family: "Inter", sans-serif;
