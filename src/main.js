@@ -1,15 +1,26 @@
 import "./main.scss";
 import "./bonus.scss";
-import { getRandomJoke } from "./fetch.js";
+import { getRandomJoke, categoryChanger } from "./fetch.js";
 import { savedJoke } from "./savedJokeRender.js";
 import { moduschanger } from "./bonus.js";
 
 let jokeId = 0;
 let jokeArray = [];
 
-async function rendomJokeRender() {
-  const rendomJoke = await getRandomJoke();
-  document.getElementById("jokeText").innerHTML = rendomJoke.text;
+async function jokeRender() {
+  let joke;
+  if (
+    document.getElementById("selectCategory").value ===
+    "Wähle eine Witz-Kategorie"
+  ) {
+    alert("Bitte, wähle eine Witz-Kategorie");
+  } else if (document.getElementById("selectCategory").value === "random") {
+    joke = await getRandomJoke();
+  } else {
+    joke = await categoryChanger();
+  }
+
+  document.getElementById("jokeText").innerHTML = joke.text;
   document
     .getElementById("saveButton")
     .classList.remove("current-joke__save-hidden");
@@ -81,9 +92,7 @@ function emptyText() {
   }
 }
 
-document
-  .getElementById("loadButton")
-  .addEventListener("click", rendomJokeRender);
+document.getElementById("loadButton").addEventListener("click", jokeRender);
 document.getElementById("saveButton").addEventListener("click", jokeSave);
 document.addEventListener("DOMContentLoaded", reloadRender);
 

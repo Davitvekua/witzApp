@@ -1,3 +1,5 @@
+//dark bright modus
+
 export function moduschanger(event) {
   if (event.currentTarget.id === "dark") {
     document.body.classList.remove("body-red");

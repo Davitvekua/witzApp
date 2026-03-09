@@ -1,5 +1,7 @@
 @use "variable" as *;
 
+//dark und bright modus
+
 .modusConsole {
   display: flex;
   flex-direction: row;
@@ -26,4 +28,12 @@
     letter-spacing: normal;
     font-weight: normal;
   }
+}
+
+//dark und bright modus
+
+.select-category {
+  padding: 0.3rem 0.3rem 0.3rem 0.3rem;
+  text-align: center;
+  border-radius: 3px;
 }
